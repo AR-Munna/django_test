@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Details</title>
+</head>
+<body bgcolor="#faebd7">
+<img src="{{ album.album_logo }}">
+<h1>Album Name: {{ album.album_name }}</h1>
+<h1>Artist: {{ album.artist }}</h1>
+<h1>Songs</h1>
+{% if album.song_set.all %}
+    <ul>
+        {% for song in album.song_set.all %}
+            <li>
+                {{ song.song_title }}-{{ song.file_type }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>Song list is empty :(</h1>
+{% endif %}
+
+
+</body>
+</html>
